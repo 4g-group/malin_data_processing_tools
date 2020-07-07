@@ -1,4 +1,7 @@
-# BMALIN DATA PROCESSING TOOLS
+# MALIN DATA PROCESSING TOOLS
+
+## PLOC evaluation script
+Go to directory and read corresponding README.md
 
 ## Bag2csv to transform a rosbag into csv files.
 It needs python2 and python-rospy, test by trying to import rosbag in a python shell :
@@ -22,6 +25,3 @@ Following topics will be available:
 /camera/infra1/image_rect_raw
 /camera/infra2/image_rect_raw
 ```
-
-## PLOC EVALUATION
-Go to directory and read corresponding README.md
