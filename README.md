@@ -1,7 +1,7 @@
 # MALIN DATA PROCESSING TOOLS
 
 ## PLOC evaluation script
-Go to directory and read corresponding README.md
+see https://github.com/4g-group/ploc_evaluation.git
 
 ## Bag2csv to transform a rosbag into csv files.
 It needs python2 and python-rospy, test by trying to import rosbag in a python shell :
