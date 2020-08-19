@@ -3,15 +3,20 @@
 ## PLOC evaluation script
 Check out https://github.com/4g-group/ploc_evaluation.git
 
-## bag2csv.py to transform a rosbag into csv files.
+## Bag2csv
+* Prerequities : Be sure to have python 2 on your computer
+* Run the following command
+`sudo apt-get install python-rosbag`
 
-It needs python3-rosbag package.
 
-example:
-`./bag2csv.py -b bag_name.bag -t TOPIC1 TOPIC2`
+* To use this application
+** if you already know which topics are of interests just enter the following command in a prompt :
+`./Bag2csv.py -b nom_du_bag.bag -t topic1 topic2`
+where topic1, topic2 corresponds to topics to convert in csv.
+** if you do not know just want to extract all topics in a row enter the following command in a prompt :
+`./Bag2csv.py -b nom_du_bag.bag`
 
-It will create several files (one for each topic), with headers.
-If no topic specified, all topics are converted.
+In both cases, it will create a folder next to the bag file which contains several csv files (one for each topic), with headers.
 
 ## bagmerge.py
 
@@ -22,7 +27,7 @@ example:
 
 It will create a "merged.bag" file in same folder.
 
-## republish_cam_decompressed_topics.launch 
+## republish_cam_decompressed_topics.launch
 Launch file to republish available camera's topics as decompressed data.
 
 replay compressed data and roslaunch launch file to decompressed available topics:
