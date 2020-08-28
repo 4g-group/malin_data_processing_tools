@@ -7,6 +7,11 @@ import csv  # to register rosbag in csv format
 import shutil  # for file management, copy file
 import os  # for file management make directory
 
+def info_bag(bag_path):
+    bag = rosbag.Bag(bag_path)
+    topics = bag.get_type_and_topic_info()[1].keys()
+    print "List of topics present in bag : %s" % topics
+
 
 def write2csv(bag_path, listOfTopics):
     bag = rosbag.Bag(bag_path)
@@ -69,11 +74,13 @@ def write2csv(bag_path, listOfTopics):
     print("Done reading all")
 
 def usage():
-    print('./Bag2csv.py -b BAG_PATH -t TOPIC_1 TOPIC_2 ...')
+    print('./Bag2csv.py -b BAG_PATH -i to get topics from bag')
+    print('./Bag2csv.py -b BAG_PATH -t TOPIC_1 TOPIC_2 ... to read TOPIC_1, TOPIC_2, ....')
+    print('./Bag2csv.py -b BAG_PATH to read all topics')
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hb:t:", ['help', 'bagpath=', 'topics='])
+        opts, args = getopt.getopt(sys.argv[1:], "hb:it", ['help', 'bagpath=', 'info', 'topics='])
     except getopt.GetoptError as err:
         print(err)
         usage()
@@ -81,7 +88,7 @@ def main():
 
     topics = []
     bag_path = ''
-
+    info = False
     for opt, arg in opts:
         if opt in ("-h", "--help"):
             print('./Bag2csv.py -b BAG_PATH -t TOPIC_1 TOPIC_2 ...')
@@ -94,15 +101,19 @@ def main():
             for a in args:
                 topics.append(a)
             print "Topics requested : %s" % topics
+        elif opt in ("-i", "--info"):
+            info = True
         else:
             assert False, "Unhandled option"
 
-    if bag_path != '' and len(topics) >= 0:
+    if bag_path != '' and len(topics) >= 0 and not info :
         write2csv(bag_path, topics)
     elif bag_path == '':
         print "ERROR: NO PATH TO BAG"
         usage()
         sys.exit(2)
+    elif bag_path != '' and info and len(topics) = 0:
+        info_bag(bag_path)
 
 if __name__ == '__main__':
     main()

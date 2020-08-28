@@ -4,17 +4,31 @@
 Check out https://github.com/4g-group/ploc_evaluation.git
 
 ## Bag2csv
-* Prerequities : Be sure to have python 2 on your computer
+### Prerequities
+* Be sure to have python 2 on your computer
 * Run the following command
-`sudo apt-get install python-rosbag`
-
-
-* To use this application
-** if you already know which topics are of interests just enter the following command in a prompt :
-`./Bag2csv.py -b nom_du_bag.bag -t topic1 topic2`
+```#bash
+sudo apt-get install python-rosbag
+```
+### Usage
+To use this application :
+* Be sure to give execution right to the bag2csv.py file.
+```#bash
+chmod +x bag2csv.py
+```
+* if you want to know which topics are in the bag, just type the following command in a prompt :
+```#bash
+./bag2csv.py -b bag_file_path.bag -i
+```
+* if you already know which topics are of interests just enter the following command in a prompt :
+```#bash
+./bag2csv.py -b nom_du_bag.bag -t topic1 topic2
+```
 where topic1, topic2 corresponds to topics to convert in csv.
-** if you do not know just want to extract all topics in a row enter the following command in a prompt :
-`./Bag2csv.py -b nom_du_bag.bag`
+* if you do not know just want to extract all topics in a row enter the following command in a prompt :
+```#bash
+./bag2csv.py -b bag_file_path.bag
+```
 
 In both cases, it will create a folder next to the bag file which contains several csv files (one for each topic), with headers.
 
