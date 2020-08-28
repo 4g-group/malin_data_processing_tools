@@ -56,3 +56,12 @@ Following topics will be available:
 /camera/infra1/image_rect_raw
 /camera/infra2/image_rect_raw
 ```
+
+## Plot Data
+
+We advise to use the amazing tool PlotJuggler to plot and vizualize data from a rosbag.
+Github:
+Website:
+
+Here an example from our output bag file "E_scenario_cyborgloc_output.bag", You can see the trace from latitude and longitude data and the heading as a function of time.
+![PlotJuggler example](https://github.com/4g-group/malin_data_processing_tools/plotjuggler_example_output.png)
